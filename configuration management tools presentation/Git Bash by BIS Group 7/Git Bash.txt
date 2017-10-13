@@ -1,0 +1,226 @@
+
+Bote Bote@BoteBote MINGW32 ~
+$ git config --global user.name "John Doe"
+
+Bote Bote@BoteBote MINGW32 ~
+$ git config --global user.email "me@johndoe.com"
+
+Bote Bote@BoteBote MINGW32 ~
+$ cd E:\git
+
+Bote Bote@BoteBote MINGW32 /e/git
+$ git init
+Initialized empty Git repository in E:/git/.git/
+
+Bote Bote@BoteBote MINGW32 /e/git (master)
+$ touch index.html style.css script.js
+
+Bote Bote@BoteBote MINGW32 /e/git (master)
+$ git status
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        index.html
+        script.js
+        style.css
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Bote Bote@BoteBote MINGW32 /e/git (master)
+$ git add .
+
+Bote Bote@BoteBote MINGW32 /e/git (master)
+$ git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   index.html
+        new file:   script.js
+        new file:   style.css
+
+
+Bote Bote@BoteBote MINGW32 /e/git (master)
+$ git commit -m "First Commit"
+[master (root-commit) 9362764] First Commit
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 index.html
+ create mode 100644 script.js
+ create mode 100644 style.css
+
+Bote Bote@BoteBote MINGW32 /e/git (master)
+$ echo 'Hello' > index.html
+
+Bote Bote@BoteBote MINGW32 /e/git (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Bote Bote@BoteBote MINGW32 /e/git (master)
+$ git commit -am "Updated index.html"
+warning: LF will be replaced by CRLF in index.html.
+The file will have its original line endings in your working directory.
+[master 56d683a] Updated index.html
+ 1 file changed, 1 insertion(+)
+
+Bote Bote@BoteBote MINGW32 /e/git (master)
+$ git log
+commit 56d683ab530f24b16b34b411e606f73dddedccd4 (HEAD -> master)
+Author: John Doe <me@johndoe.com>
+Date:   Wed Aug 2 09:24:03 2017 -0700
+
+    Updated index.html
+
+commit 93627649343d84a5a78ada48ac7de393ded6834f
+Author: John Doe <me@johndoe.com>
+Date:   Wed Aug 2 09:22:50 2017 -0700
+
+    First Commit
+
+Bote Bote@BoteBote MINGW32 /e/git (master)
+$ git log --pretty=oneline
+56d683ab530f24b16b34b411e606f73dddedccd4 (HEAD -> master) Updated index.html
+93627649343d84a5a78ada48ac7de393ded6834f First Commit
+
+Bote Bote@BoteBote MINGW32 /e/git (master)
+$ git log --pretty=format "%h - %an, %ar : %s"
+fatal: invalid --pretty format: format
+
+Bote Bote@BoteBote MINGW32 /e/git (master)
+$ git checkout 9362764
+Note: checking out '9362764'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 9362764... First Commit
+
+Bote Bote@BoteBote MINGW32 /e/git ((9362764...))
+$ git tag v1
+
+Bote Bote@BoteBote MINGW32 /e/git ((v1))
+$ git checkout master
+Previous HEAD position was 9362764... First Commit
+Switched to branch 'master'
+
+Bote Bote@BoteBote MINGW32 /e/git (master)
+$ git log --pretty=oneline
+56d683ab530f24b16b34b411e606f73dddedccd4 (HEAD -> master) Updated index.html
+93627649343d84a5a78ada48ac7de393ded6834f (tag: v1) First Commit
+
+Bote Bote@BoteBote MINGW32 /e/git (master)
+$ git checkkout v1
+git: 'checkkout' is not a git command. See 'git --help'.
+
+The most similar command is
+        checkout
+
+Bote Bote@BoteBote MINGW32 /e/git (master)
+$ git checkout v1
+Note: checking out 'v1'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 9362764... First Commit
+
+Bote Bote@BoteBote MINGW32 /e/git ((v1))
+$ git checkout master
+Previous HEAD position was 9362764... First Commit
+Switched to branch 'master'
+
+Bote Bote@BoteBote MINGW32 /e/git (master)
+$ git tag -d v1
+Deleted tag 'v1' (was 9362764)
+
+Bote Bote@BoteBote MINGW32 /e/git (master)
+$ git branch
+* master
+
+Bote Bote@BoteBote MINGW32 /e/git (master)
+$ git checkout -b beta
+Switched to a new branch 'beta'
+
+Bote Bote@BoteBote MINGW32 /e/git (beta)
+$ echo 'body { margin: o }' > style.css
+
+Bote Bote@BoteBote MINGW32 /e/git (beta)
+$ git commit -am "Updated style.css"
+warning: LF will be replaced by CRLF in style.css.
+The file will have its original line endings in your working directory.
+[beta 9e07214] Updated style.css
+ 1 file changed, 1 insertion(+)
+
+Bote Bote@BoteBote MINGW32 /e/git (beta)
+$ git log --pretty=oneline
+9e07214e0f42253f0b4ec7711c8663a959902637 (HEAD -> beta) Updated style.css
+56d683ab530f24b16b34b411e606f73dddedccd4 (master) Updated index.html
+93627649343d84a5a78ada48ac7de393ded6834f First Commit
+
+Bote Bote@BoteBote MINGW32 /e/git (beta)
+$ git checkout master
+Switched to branch 'master'
+
+Bote Bote@BoteBote MINGW32 /e/git (master)
+$ git merge beta
+Updating 56d683a..9e07214
+Fast-forward
+ style.css | 1 +
+ 1 file changed, 1 insertion(+)
+
+Bote Bote@BoteBote MINGW32 /e/git (master)
+$ git log --pretty=oneline
+9e07214e0f42253f0b4ec7711c8663a959902637 (HEAD -> master, beta) Updated style.css
+56d683ab530f24b16b34b411e606f73dddedccd4 Updated index.html
+93627649343d84a5a78ada48ac7de393ded6834f First Commit
+
+Bote Bote@BoteBote MINGW32 /e/git (master)
+$ cd ~
+
+Bote Bote@BoteBote MINGW32 ~
+$ git clone E:/git/.git
+fatal: destination path 'git' already exists and is not an empty directory.
+
+Bote Bote@BoteBote MINGW32 ~
+$ ls git
+index.html  script.js  style.css
+
+Bote Bote@BoteBote MINGW32 ~
+$ cd git
+
+Bote Bote@BoteBote MINGW32 ~/git (beta)
+$ git log --pretty=oneline
+33908f701d1591aed32c486e7c2b06748d06b1c5 (HEAD -> beta, origin/beta) Updated style.css
+b954d591a37f6e35ce7de30d4e304475b7b9e4eb Updated index.html
+f4b15c36ff258ce74b06b52296ee79ef98104f2f First commit
+
+Bote Bote@BoteBote MINGW32 ~/git (beta)
+$ git branch
+* beta
+  master
+
